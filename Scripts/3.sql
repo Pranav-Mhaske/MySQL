@@ -1,0 +1,29 @@
+- FIRST SELECT 
+SELECT * FROM dim_customer;
+
+
+-- LIMIT 
+SELECT 
+	customer_id,
+	email 
+FROM 
+	dim_customer
+LIMIT 15;
+
+
+-- WHERE [CONDITION]
+-- 1
+SELECT 
+	* 
+FROM 
+	dim_customer 
+WHERE 
+	gender = 'F';
+
+-- 2 (AND/OR)
+SELECT 
+	* 
+FROM 
+	dim_customer 
+WHERE 
+	(gender = 'F') AND ((country = 'France') OR (join_date > '2022-01-01'));
