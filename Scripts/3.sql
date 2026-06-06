@@ -53,6 +53,12 @@ ORDER BY
 	unit_price DESC 
 LIMIT 3;
 
-
-
-
+-- ALIAS
+SELECT 
+	product_key,
+    product_id,
+    product_name AS 'product name',
+    category
+FROM 
+	dim_product;
+	
