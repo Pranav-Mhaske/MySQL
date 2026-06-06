@@ -44,4 +44,15 @@ FROM
 WHERE 
 	first_name LIKE 'T__f%y';
 
+-- Sorting
+SELECT 
+	* 
+FROM 
+	dim_product
+ORDER BY 
+	unit_price DESC 
+LIMIT 3;
+
+
+
 
