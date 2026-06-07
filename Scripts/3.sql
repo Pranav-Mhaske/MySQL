@@ -62,3 +62,25 @@ SELECT
 FROM 
 	dim_product;
 	
+-- GROUPING
+-- 1
+SELECT 
+	category,
+    avg(unit_price) AS avg_price,
+    sum(unit_price) AS total_price
+FROM 
+	dim_product
+GROUP BY 
+	category;
+    
+-- 2
+SELECT 
+	category,
+    avg(unit_price) AS avg_price,
+    sum(unit_price) AS total_price
+FROM 
+	dim_product
+GROUP BY 
+	category
+HAVING
+	avg_price > 500;
