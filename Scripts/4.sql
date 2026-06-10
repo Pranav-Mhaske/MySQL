@@ -55,4 +55,5 @@ RIGHT JOIN
 	customers c 
     ON 
 		o.cust_id = c.id;
-		
+
+-- The UNION operator is used to combine the result sets of two or more SELECT statements. It removes duplicate rows between the various SELECT statements. Each SELECT statement within the UNION must have the same number of columns in the result sets with similar data types. The columns in each SELECT statement must also be in the same order.
