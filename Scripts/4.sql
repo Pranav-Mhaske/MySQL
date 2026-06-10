@@ -33,3 +33,26 @@ RIGHT JOIN
 		o.cust_id = c.id;
 
 --Right join will return all records from the right table (customers) and the matched records from the left table (orders). If there is no match, the result is NULL on the left side.
+
+-- UNIONS
+
+SELECT 
+	*
+FROM 
+	orders o 
+LEFT JOIN 
+	customers c 
+    ON 
+		o.cust_id = c.id
+
+UNION
+
+SELECT 
+	*
+FROM 
+	orders o 
+RIGHT JOIN 
+	customers c 
+    ON 
+		o.cust_id = c.id;
+		
