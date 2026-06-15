@@ -9,3 +9,44 @@ SELECT
     unit_price * unit_price as multiply_price
 FROM 
 	dim_product;
+
+-- DATE Transformations
+-- 1) 
+SELECT 
+	date,
+    now() as 'current_timestamp',
+    utc_date(),
+    utc_time(),
+    utc_timestamp()
+FROM 
+	dim_date;
+    
+-- 2)
+SELECT 
+	date,
+    YEAR(date),
+    MONTH(date),
+    DAY(date),
+    WEEKDAY(date),
+    DAYNAME(date),
+    DATEDIFF(DATE(utc_timestamp()),date) AS total_days,
+    ADDDATE(date,2),
+    SUBDATE(date,2),
+    CAST('2025-01-01' AS datetime) 
+FROM 
+	dim_date;
+    
+-- 3)
+SELECT 
+	date,
+    date_format(date,"%W %M %e %Y") AS converted_date
+FROM 
+	dim_date;
+
+
+-- TYPE CASTING
+SELECT 
+	customer_key,
+    CAST(customer_key AS CHAR(100))
+FROM
+	dim_customer;
