@@ -50,3 +50,21 @@ SELECT
     CAST(customer_key AS CHAR(100))
 FROM
 	dim_customer;
+
+
+-- STRING FUNCTIONS
+SELECT 
+	*,
+	CONCAT(first_name,' ',last_name) AS full_name,
+    CONCAT_WS(' ',first_name,last_name,country),
+    LENGTH(country) AS country_size,
+    LOWER(city),
+    substring(email,1,6),
+    REPLACE(email,'@','%'),
+    LEFT(country,3),
+    RIGHT(country,3),
+    REVERSE(country),
+    REPEAT(first_name,2)
+FROM 
+	dim_customer;
+
