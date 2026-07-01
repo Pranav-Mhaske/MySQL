@@ -28,3 +28,12 @@ FROM
 WHERE 
 	dedup = 1;
 	
+
+-- SCENARIO 3 [Lag & Lead]
+SELECT 
+	*,
+    LAG(temp,1,0) OVER(ORDER BY id ASC) AS prev_day_temp,
+    LAG(temp,2,0) OVER(ORDER BY id ASC) AS prev_2days_temp,
+    LEAD(temp,1,0) OVER(ORDER BY id ASC) AS next_day_temp
+FROM 
+	weather;
