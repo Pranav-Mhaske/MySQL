@@ -27,3 +27,26 @@ ORDER BY salary DESC, emp_name ASC;
 SELECT department, COUNT(emp_id) AS total_employees
 FROM Employee
 GROUP BY department;
+
+--5. Display: department, average_salary :- Show only the departments whose average salary is greater than 55,000.
+
+SELECT department, AVG(salary) AS average_salary
+FROM Employee
+GROUP BY department
+HAVING AVG(salary) > 55000;
+
+--6. Display: emp_name, dept_name, salary :- for all employees by joining the Employee and Department tables.
+
+SELECT e.emp_name, d.dept_name, e.salary
+FROM Employee AS e
+INNER JOIN Department AS d
+ON e.dept_id = d.dept_id;
+
+--7. Display: emp_name, dept_name, salary :- Show only employees:- who belong to the IT department, and whose salary is greater than 60,000.
+
+SELECT e.emp_name, d.dept_name, e.salary
+FROM Employee AS e
+INNER JOIN Department AS d
+ON e.dept_id = d.dept_id
+WHERE d.dept_name = 'IT'
+  AND e.salary > 60000;
