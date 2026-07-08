@@ -50,3 +50,10 @@ INNER JOIN Department AS d
 ON e.dept_id = d.dept_id
 WHERE d.dept_name = 'IT'
   AND e.salary > 60000;
+
+--8. Display: dept_name, emp_name :- Show all departments, even if they have no employees.
+
+SELECT d.dept_name, e.emp_name
+FROM Department AS d
+LEFT JOIN Employee AS e
+ON d.dept_id = e.dept_id;
