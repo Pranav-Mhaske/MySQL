@@ -58,16 +58,11 @@ FROM Department AS d
 LEFT JOIN Employee AS e
 ON d.dept_id = e.dept_id;
 
---9. Display:
-
-dept_name
-total_employees
-
-Show the number of employees in each department.Include departments that have no employees.
+--9. Display: dept_name & total_employees :- Show the number of employees in each department. & Include departments that have no employees.
 
 
 SELECT d.dept_name,
-       COUNT(e.emp_id) AS total_employees
+COUNT(e.emp_id) AS total_employees
 FROM Department AS d
 LEFT JOIN Employee AS e
 ON d.dept_id = e.dept_id
