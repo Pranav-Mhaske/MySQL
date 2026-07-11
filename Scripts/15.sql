@@ -60,10 +60,38 @@ ON d.dept_id = e.dept_id;
 
 --9. Display: dept_name & total_employees :- Show the number of employees in each department. & Include departments that have no employees.
 
-
 SELECT d.dept_name,
 COUNT(e.emp_id) AS total_employees
 FROM Department AS d
 LEFT JOIN Employee AS e
 ON d.dept_id = e.dept_id
 GROUP BY d.dept_name;
+
+--10. Display: dept_name & total_salary :- Show the total salary paid by each department.
+
+SELECT d.dept_name,
+       COALESCE(SUM(e.salary), 0) AS total_salary
+FROM Department AS d
+LEFT JOIN Employee AS e
+ON d.dept_id = e.dept_id
+GROUP BY d.dept_id, d.dept_name;
+
+--11. Display: dept_name & total_employees :- Show only the departments that have 2 or more employees.
+
+SELECT d.dept_name,
+       COUNT(e.emp_id) AS total_employees
+FROM Department AS d
+INNER JOIN Employee AS e
+ON e.dept_id = d.dept_id
+GROUP BY d.dept_id, d.dept_name
+HAVING COUNT(e.emp_id) >= 2;
+
+--12. Display: dept_name & lowest_salary :- Find the lowest salary in each department.
+
+SELECT d.dept_name,
+       MIN(e.salary) AS lowest_salary
+FROM Department AS d
+LEFT JOIN Employee AS e
+ON d.dept_id = e.dept_id
+GROUP BY d.dept_id, d.dept_name;
+
