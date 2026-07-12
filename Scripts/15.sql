@@ -95,3 +95,22 @@ LEFT JOIN Employee AS e
 ON d.dept_id = e.dept_id
 GROUP BY d.dept_id, d.dept_name;
 
+--13. Display: dept_name & average_salary :- Requirements: Calculate the average salary for each department. && Show only departments that have at least 2 employees. && Sort the result by average salary in descending order.
+
+SELECT d.dept_name,
+       AVG(e.salary) AS average_salary
+FROM Department AS d
+INNER JOIN Employee AS e
+ON d.dept_id = e.dept_id
+GROUP BY d.dept_id, d.dept_name
+HAVING COUNT(e.dept_id) >= 2
+ORDER BY AVG(e.salary) DESC;
+
+--14. Display emp_name, dept_name, city :- You'll need to join all three tables.
+
+SELECT e.emp_name, d.dept_name, l.city
+FROM Employee AS e
+INNER JOIN Department AS d
+ON e.dept_id = d.dept_id
+INNER JOIN Location AS l
+ON l.location_id = d.location_id;
