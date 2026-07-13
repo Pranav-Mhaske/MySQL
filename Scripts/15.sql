@@ -114,3 +114,16 @@ INNER JOIN Department AS d
 ON e.dept_id = d.dept_id
 INNER JOIN Location AS l
 ON l.location_id = d.location_id;
+
+--15. Using the same three tables (Employee, Department, and Location), display:- city & total_employees, :- Requirements: Include all cities, even if they have no employees. Count the number of employees in each city. Show only cities with at least 1 employee. Sort the results by total_employees in descending order.
+
+SELECT l.city,
+       COUNT(e.emp_id) AS total_employees
+FROM Location AS l
+LEFT JOIN Department AS d
+ON l.location_id = d.location_id
+LEFT JOIN Employee AS e
+ON d.dept_id = e.dept_id
+GROUP BY l.location_id, l.city
+HAVING COUNT(e.emp_id) >= 1
+ORDER BY total_employees DESC;
