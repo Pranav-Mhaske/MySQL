@@ -127,3 +127,18 @@ ON d.dept_id = e.dept_id
 GROUP BY l.location_id, l.city
 HAVING COUNT(e.emp_id) >= 1
 ORDER BY total_employees DESC;
+
+--16. Display the highest-paid employee in each department. :- Return: dept_name & emp_name & salary
+
+SELECT *
+FROM (
+    SELECT d.dept_id,
+           MAX(e.salary) AS max_salary
+    FROM Department AS d
+    LEFT JOIN Employee AS e
+      ON d.dept_id = e.dept_id
+    GROUP BY d.dept_id
+) AS subquery_table
+INNER JOIN Employee AS e
+  ON subquery_table.dept_id = e.dept_id
+ AND subquery_table.max_salary = e.salary;
