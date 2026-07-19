@@ -18,3 +18,10 @@ SELECT column_1, column_2, column_3, function()
 OVER (PARTITION BY partition_expression ORDER BY order_expression) as output_column_name
 FROM table_name
 
+SELECT 
+	* 
+FROM 
+	dim_product
+WHERE 
+	unit_price > (SELECT AVG(unit_price) FROM dim_product);
+    
