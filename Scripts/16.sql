@@ -25,3 +25,8 @@ FROM
 WHERE 
 	unit_price > (SELECT AVG(unit_price) FROM dim_product);
     
+
+SELECT DISTINCT salary 
+FROM employees 
+ORDER BY salary DESC 
+LIMIT 1 OFFSET 1;
