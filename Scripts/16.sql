@@ -30,3 +30,12 @@ SELECT DISTINCT salary
 FROM employees 
 ORDER BY salary DESC 
 LIMIT 1 OFFSET 1;
+
+
+SELECT *
+FROM (
+    SELECT *,
+           ROW_NUMBER() OVER (ORDER BY unit_price) AS row_number
+    FROM dim_product
+) AS subquery
+WHERE row_number > 100;
