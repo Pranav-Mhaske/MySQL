@@ -39,3 +39,12 @@ FROM (
     FROM dim_product
 ) AS subquery
 WHERE row_number > 100;
+
+
+
+SELECT
+    distinct (CITY)
+FROM
+    STATION
+WHERE
+    (MOD(ID, 2) = 0);
