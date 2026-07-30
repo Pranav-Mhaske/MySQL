@@ -17,3 +17,11 @@ select NAME from CITY where POPULATION > 120000 AND COUNTRYCODE = 'USA';
 
 select * from CITY
 
+--4
+
+SELECT
+    distinct (CITY)
+FROM
+    STATION
+WHERE
+    (MOD(ID, 2) = 0);
