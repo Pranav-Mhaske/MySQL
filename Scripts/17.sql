@@ -19,6 +19,11 @@ select * from CITY
 
 --4
 
+select * from CITY where ID = 1661;
+
+
+--x
+
 SELECT
     distinct (CITY)
 FROM
