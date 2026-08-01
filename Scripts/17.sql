@@ -21,6 +21,10 @@ select * from CITY
 
 select * from CITY where ID = 1661;
 
+--5
+
+SELECT * FROM CITY where COUNTRYCODE = 'JPN';
+
 
 --x
 
