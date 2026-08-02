@@ -25,6 +25,10 @@ select * from CITY where ID = 1661;
 
 SELECT * FROM CITY where COUNTRYCODE = 'JPN';
 
+--6
+
+select city, state from station;
+
 
 --x
 
