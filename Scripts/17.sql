@@ -45,21 +45,19 @@ SELECT
 FROM STATION;
 
 --9
-SELECT
-    LEN(CITY) AS CEEE
-FROM
-    STATION
-ORDER BY
-    CEEE DESC
-    
-UNION
-
-SELECT
-    LEN(CITY) AS CCCC
-FROM
-    STATION
-ORDER BY
-    CCCC ASC;
+(
+    SELECT CITY, LENGTH(CITY) AS City_Length
+    FROM STATION
+    ORDER BY City_Length ASC, CITY ASC
+    LIMIT 1
+)
+UNION ALL
+(
+    SELECT CITY, LENGTH(CITY) AS City_Length
+    FROM STATION
+    ORDER BY City_Length DESC, CITY ASC
+    LIMIT 1
+);
     
 --10
 
@@ -75,6 +73,9 @@ FROM
     STATION
 WHERE
     (CITY LIKE '%a') OR (CITY LIKE '%e') OR (CITY LIKE '%i') OR (CITY LIKE '%o') OR (CITY LIKE '%u');
+
+--12
+
 
 
 --x
