@@ -74,9 +74,9 @@ FROM
 WHERE
     (CITY LIKE '%a') OR (CITY LIKE '%e') OR (CITY LIKE '%i') OR (CITY LIKE '%o') OR (CITY LIKE '%u');
 
---12
+--12 (Revising Aggregations - The Count Function)
 
-
+SELECT COUNT(*) FROM CITY WHERE CITY.POPULATION > 100000;
 
 --x
 SELECT DISTINCT CITY
