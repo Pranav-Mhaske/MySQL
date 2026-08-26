@@ -136,6 +136,22 @@ SELECT ROUND((SQRT((X*X) + (Y*Y))), 4) FROM (
     SELECT (MAX(LAT_N) - MIN(LAT_N)) AS X, (MAX(LONG_W) - MIN(LONG_W)) AS Y FROM STATION    
 ) AS ABC;
 
+--27 (Weather Observation Station 20)
+
+SELECT ROUND(AVG(LAT_N), 4)
+FROM (
+    SELECT
+        LAT_N,
+        ROW_NUMBER() OVER (ORDER BY LAT_N) AS ROW_NO,
+        COUNT(*) OVER () AS TOTAL
+    FROM STATION
+) AS ABC
+WHERE ROW_NO IN (
+    FLOOR((TOTAL + 1) / 2),
+    CEIL((TOTAL + 1) / 2)
+);
+
+
 --x
 SELECT DISTINCT CITY
 FROM STATION
