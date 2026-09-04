@@ -7,3 +7,10 @@ SELECT P.FIRSTNAME, P.LASTNAME, A.CITY, A.STATE FROM PERSON AS P LEFT JOIN ADDRE
 SELECT * 
 FROM your_table 
 WHERE LOWER(column_name) = REVERSE(LOWER(column_name));
+
+--X (Duplicate Emails)
+
+SELECT Email, COUNT(Email)
+FROM Users
+GROUP BY Email
+HAVING COUNT(Email) > 1;
