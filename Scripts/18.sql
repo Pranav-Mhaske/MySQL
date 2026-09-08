@@ -57,3 +57,10 @@ SELECT Email, COUNT(Email)
 FROM Users
 GROUP BY Email
 HAVING COUNT(Email) > 1;
+
+--X
+
+SELECT employee_name, department, salary 
+FROM employees 
+ORDER BY department ASC, salary DESC;
+
