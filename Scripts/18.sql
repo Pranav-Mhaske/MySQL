@@ -71,3 +71,21 @@ FROM Customers A, Customers B
 WHERE A.CustomerID <> B.CustomerID
 AND A.City = B.City
 ORDER BY A.City;
+
+--x (Joins)
+
+SELECT 
+    t1.column_a, 
+    t2.column_b, 
+    t3.column_c, 
+    t4.column_d, 
+    t5.column_e, 
+    t6.column_f, 
+    t7.column_g
+FROM table1 t1
+INNER JOIN table2 t2 ON t1.id = t2.t1_id
+INNER JOIN table3 t3 ON t2.id = t3.t2_id
+LEFT JOIN table4 t4  ON t3.id = t4.t3_id
+LEFT JOIN table5 t5  ON t4.id = t5.t4_id
+RIGHT JOIN table6 t6 ON t5.id = t6.t5_id
+FULL JOIN table7 t7  ON t6.id = t7.t6_id;
