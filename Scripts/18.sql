@@ -89,3 +89,18 @@ LEFT JOIN table4 t4  ON t3.id = t4.t3_id
 LEFT JOIN table5 t5  ON t4.id = t5.t4_id
 RIGHT JOIN table6 t6 ON t5.id = t6.t5_id
 FULL JOIN table7 t7  ON t6.id = t7.t6_id;
+
+--x (Sub-query)
+SELECT 
+	* 
+FROM 
+(
+	SELECT 
+	* 
+FROM 
+	dim_product
+WHERE 
+	unit_price > (SELECT AVG(unit_price) FROM dim_product)
+) AS subquery_table
+WHERE 
+	product_name = 'Figure Method'
