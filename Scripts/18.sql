@@ -104,3 +104,12 @@ WHERE
 ) AS subquery_table
 WHERE 
 	product_name = 'Figure Method'
+
+
+--x (lead)
+
+SELECT 
+    SaleDate,
+    Revenue AS TodayRevenue,
+    LEAD(Revenue, 1, 0) OVER (ORDER BY SaleDate) AS TomorrowRevenue
+FROM Sales;
