@@ -113,3 +113,11 @@ SELECT
     Revenue AS TodayRevenue,
     LEAD(Revenue, 1, 0) OVER (ORDER BY SaleDate) AS TomorrowRevenue
 FROM Sales;
+
+--x (lag)
+
+SELECT 
+    SaleDate,
+    Revenue,
+    LAG(Revenue, 1, 0) OVER (ORDER BY SaleDate) AS PriorDayRevenue
+FROM Sales;
