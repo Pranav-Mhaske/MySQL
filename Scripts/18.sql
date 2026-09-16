@@ -121,3 +121,14 @@ SELECT
     Revenue,
     LAG(Revenue, 1, 0) OVER (ORDER BY SaleDate) AS PriorDayRevenue
 FROM Sales;
+
+
+--x (Lead & Lag)
+
+SELECT 
+	*,
+    LAG(temp,1,0) OVER(ORDER BY id ASC) AS prev_day_temp,
+    LAG(temp,2,0) OVER(ORDER BY id ASC) AS prev_2days_temp,
+    LEAD(temp,1,0) OVER(ORDER BY id ASC) AS next_day_temp
+FROM 
+	weather;
