@@ -132,3 +132,8 @@ SELECT
     LEAD(temp,1,0) OVER(ORDER BY id ASC) AS next_day_temp
 FROM 
 	weather;
+
+--x (In)
+
+SELECT * FROM Employees 
+WHERE City IN ('New York', 'London', 'Paris');
