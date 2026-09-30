@@ -15,3 +15,11 @@ SELECT
 FROM EMPLOYEE
 GROUP BY DEPARTMENT
 HAVING ((AVG(SALARY) > 65000) AND (AVG(SALARY) < 80000));
+
+
+--3
+
+SELECT 
+    COUNT(CASE WHEN marks >= 90 THEN 1 END) AS students_90_plus,
+    COUNT(CASE WHEN marks < 90 THEN 1 END) AS students_90_minus
+FROM students;
