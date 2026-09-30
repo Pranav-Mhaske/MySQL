@@ -23,3 +23,10 @@ SELECT
     COUNT(CASE WHEN marks >= 90 THEN 1 END) AS students_90_plus,
     COUNT(CASE WHEN marks < 90 THEN 1 END) AS students_90_minus
 FROM students;
+
+
+--4
+
+SELECT MAX(salary) AS second_highest_salary 
+FROM employees 
+WHERE salary < (SELECT MAX(salary) FROM employees);
