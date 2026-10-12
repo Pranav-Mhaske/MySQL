@@ -38,3 +38,17 @@ SELECT
     ROUND(100.0 * COUNT(CASE WHEN score IN (1, 2) THEN 1 END) / COUNT(*), 2) AS pct_low_1_2,
     ROUND(100.0 * COUNT(CASE WHEN score = 3 THEN 1 END) / COUNT(*), 2) AS pct_mid_3
 FROM students;
+
+--6
+
+WITH regional_sales AS (
+    SELECT region, product, SUM(amount) AS total_sales
+    FROM orders
+    WHERE order_date >= '2026-01-01' 
+      AND status = 'COMPLETED'
+    GROUP BY region, product
+)
+SELECT region, product, total_sales
+FROM regional_sales
+WHERE total_sales > 10000
+  AND region = 'North America';
