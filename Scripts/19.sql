@@ -52,3 +52,16 @@ SELECT region, product, total_sales
 FROM regional_sales
 WHERE total_sales > 10000
   AND region = 'North America';
+
+
+--7
+
+SELECT 
+    classroom_number, 
+    AVG(score) AS average_score
+FROM 
+    students
+WHERE 
+    classroom_number IN ('A', 'B', 'C', 'D')
+GROUP BY 
+    classroom_number;
