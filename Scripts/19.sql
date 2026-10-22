@@ -65,3 +65,28 @@ WHERE
     classroom_number IN ('A', 'B', 'C', 'D')
 GROUP BY 
     classroom_number;
+
+--8
+
+WITH WorldPopulation AS (
+    -- Total population of all countries combined
+    SELECT SUM(population) AS total_world_pop FROM countries
+)
+SELECT 
+    r.region_name,
+    r.country_name,
+    r.population AS region_population,
+    c.population AS country_population,
+    
+    -- 1. Percentage with respect to the Country
+    (r.population * 100.0 / c.population) AS wrt_country_pct,
+    
+    -- 2. Percentage with respect to the World
+    (r.population * 100.0 / wp.total_world_pop) AS wrt_world_pct
+
+FROM 
+    regions r
+JOIN 
+    countries c ON r.country_name = c.country_name
+CROSS JOIN 
+    WorldPopulation wp;
